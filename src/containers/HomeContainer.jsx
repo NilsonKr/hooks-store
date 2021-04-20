@@ -1,10 +1,14 @@
 import React from 'react';
+import initialState from '../initialState'
+
+import Products from '@components/Products'
+
 
 const HomeContainer = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <React.Fragment>
+      <Products products={initialState.products}/>
+    </React.Fragment>
   )
 }
 
