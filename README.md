@@ -1,2 +1,2 @@
 # hooks-store
-store built with react hooks
+Store built with react hooks

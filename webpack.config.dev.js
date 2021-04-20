@@ -5,14 +5,16 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		assetModuleFileName: 'assets/[name][hash].[ext]',
+		assetModuleFilename: 'assets/[name][hash].[ext]',
 		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	mode: 'development',
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			'@components': path.resolve(__dirname, './src/components/'),
+			'@containers': path.resolve(__dirname, './src/containers/'),
 			'@styles': path.resolve(__dirname, './src/styles/'),
 		},
 	},

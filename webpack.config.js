@@ -1,5 +1,8 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -7,14 +10,16 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		assetModuleFileName: 'assets/[name][hash].[ext]',
+		assetModuleFilename: 'assets/[name][hash].[ext]',
 		filename: 'bundle.[contenthash].js',
+		publicPath: '/'
 	},
 	mode: 'production',
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			'@components': path.resolve(__dirname, './src/components/'),
+			'@containers': path.resolve(__dirname, './src/containers/'),
 			'@styles': path.resolve(__dirname, './src/styles/'),
 		},
 	},
@@ -48,5 +53,13 @@ module.exports = {
 			filename: 'styles/[name].[contenthash].css',
 		}),
 		new CleanWebpackPlugin(),
+		new BundleAnalyzerPlugin(),
 	],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new CssMinimizerPlugin(),
+			new TerserPlugin()
+		]
+	}
 };
