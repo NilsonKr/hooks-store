@@ -1,8 +1,8 @@
-body {
-	color: white;
-	background-color: thistle;
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 
-body h1 {
-	font-size: 40px;
+body {
+  margin: 0;
+  padding: 0;
+  color: #3c484e;
+  font-family: 'Open Sans', sans-serif;
 }
