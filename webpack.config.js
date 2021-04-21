@@ -1,8 +1,8 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -12,7 +12,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		assetModuleFilename: 'assets/[name][hash].[ext]',
 		filename: 'bundle.[contenthash].js',
-		publicPath: '/'
+		publicPath: '/',
 	},
 	mode: 'production',
 	resolve: {
@@ -21,6 +21,7 @@ module.exports = {
 			'@components': path.resolve(__dirname, './src/components/'),
 			'@containers': path.resolve(__dirname, './src/containers/'),
 			'@styles': path.resolve(__dirname, './src/styles/'),
+			'@hooks': path.resolve(__dirname, './src/hooks/'),
 		},
 	},
 	module: {
@@ -57,9 +58,6 @@ module.exports = {
 	],
 	optimization: {
 		minimize: true,
-		minimizer: [
-			new CssMinimizerPlugin(),
-			new TerserPlugin()
-		]
-	}
+		minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+	},
 };
