@@ -28,7 +28,11 @@ const useInitialState = () => {
 				...state,
 				cart: {
 					...state.cart,
-					[payload.title]: { ...payload, quantity: payload.quantity - 1 },
+					[payload.title]: {
+						...payload,
+						quantity: payload.quantity - 1,
+						totalPrice: payload.totalPrice - payload.price,
+					},
 				},
 			});
 		} else {
