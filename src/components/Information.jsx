@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Information = props => (
+const Information = ({ formRef, submit }) => (
 	<div className='Information-content'>
 		<div className='Information-head'>
 			<h2>Contact Information: </h2>
 		</div>
 		<div className='Information-form'>
-			<form action=''>
+			<form ref={formRef}>
 				<input type='text' placeholder='Full Name' name='name' />
 				<input type='text' placeholder='E-Mail' name='email' />
-				<input type='text' placeholder='Address' name='addres' />
+				<input type='text' placeholder='Address' name='address' />
 				<input type='text' placeholder='APT' name='apto' />
 				<input type='text' placeholder='City' name='city' />
 				<input type='text' placeholder='Country' name='country' />
@@ -24,7 +24,9 @@ const Information = props => (
 				Go Back
 			</Link>
 			<Link className='Information-next' to='/checkout/payment'>
-				Pay
+				<button type='button' onClick={submit}>
+					Pay
+				</button>
 			</Link>
 		</div>
 	</div>
