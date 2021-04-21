@@ -1,11 +1,12 @@
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
-import {AppContext} from '../context';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AppContext } from '../context';
 
 import '@styles/components/Header.css';
 
 const Header = () => {
-	const {state} = useContext(AppContext);
+	const { state } = useContext(AppContext);
+	const items = Object.keys(state.cart);
 
 	return (
 		<header className='Header'>
@@ -16,7 +17,7 @@ const Header = () => {
 				<Link to='/checkout'>
 					<i className='fas fa-shopping-basket fa-2x' title='Checkout' />
 				</Link>
-				{state.cart.length > 0 && <h3 className='Header-alert'>{state.cart.length}</h3>}
+				{items.length > 0 && <h3 className='Header-alert'>{items.length}</h3>}
 			</div>
 		</header>
 	);
