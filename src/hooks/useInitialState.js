@@ -11,7 +11,7 @@ const useInitialState = () => {
 		const newItem = {
 			...payload,
 			quantity: item ? (item.quantity += 1) : 1,
-			totalPrice: item ? item.price * item.quantity : 0,
+			totalPrice: item ? item.price * item.quantity : payload.price,
 		};
 
 		setState({
@@ -32,19 +32,15 @@ const useInitialState = () => {
 				},
 			});
 		} else {
-			const newState = { ...state, cart: { ...state.cart } };
+			//Delete The Item from cart
+			const newCart = { ...state.cart };
 
-			delete newState.cart[payload.title];
+			delete newCart[payload.title];
 
-			console.log(newState);
-
-			// setState({
-			// 	...state,
-			// 	cart: {
-			// 		...state.cart,
-			// 		delete
-			// 	}
-			// })
+			setState({
+				...state,
+				cart: { ...newCart },
+			});
 		}
 	};
 

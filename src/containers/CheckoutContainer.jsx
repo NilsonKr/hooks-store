@@ -19,8 +19,6 @@ const CheckoutContainer = () => {
 		return total;
 	};
 
-	console.log(state);
-
 	return (
 		<div className='Checkout'>
 			<div className='Checkout-content'>
