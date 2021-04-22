@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AppContext } from '../context';
 
 import Information from '@components/Information';
@@ -7,8 +8,9 @@ import InformationSideBar from '@components/InformationSideBar';
 import '@styles/components/Information.css';
 
 const InformationContainer = () => {
-	const { state } = useContext(AppContext);
+	const { state, setBuyer } = useContext(AppContext);
 	const items = Object.keys(state.cart);
+	const history = useHistory();
 
 	const form = useRef(null);
 
@@ -26,10 +28,11 @@ const InformationContainer = () => {
 			phone: formData.get('phone'),
 		};
 
-		console.log(buyerData);
+		setBuyer(buyerData);
+
+		history.push('/checkout/payment');
 	};
 
-	console.log(form);
 	return (
 		<div className='Information'>
 			<Information formRef={form} submit={handleSubmit} />

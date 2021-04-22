@@ -23,11 +23,9 @@ const Information = ({ formRef, submit }) => (
 			<Link className='Information-back' to='/checkout'>
 				Go Back
 			</Link>
-			<Link className='Information-next' to='/checkout/payment'>
-				<button type='button' onClick={submit}>
-					Pay
-				</button>
-			</Link>
+			<button className='Information-next' type='button' onClick={submit}>
+				Pay
+			</button>
 		</div>
 	</div>
 );
