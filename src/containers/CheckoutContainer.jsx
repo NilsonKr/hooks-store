@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/';
+import getTotalPrice from '../utils/getTotalPrice';
 
 import '@styles/components/Checkout.css';
 
@@ -8,18 +9,6 @@ const CheckoutContainer = () => {
 	const { state, removeFromCart } = useContext(AppContext);
 	const { cart } = state;
 	const items = Object.keys(state.cart);
-
-	//Sum All the items Price
-	const getTotalPrice = () => {
-		let total = 0;
-		for (const property in cart) {
-			total += cart[property].totalPrice;
-		}
-
-		return total;
-	};
-
-	console.log(state);
 
 	return (
 		<div className='Checkout'>
@@ -42,7 +31,7 @@ const CheckoutContainer = () => {
 				))}
 			</div>
 			<div className='Checkout-sidebar'>
-				<h3>Total Price: ${getTotalPrice()}</h3>
+				<h3>Total Price: ${getTotalPrice(cart)}</h3>
 				<Link to='/checkout/information'>
 					<button type='button'>Continuar pedido</button>
 				</Link>

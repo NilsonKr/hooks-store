@@ -1,10 +1,11 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 
 module.exports = {
 	entry: './src/index.js',
@@ -55,6 +56,7 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new BundleAnalyzerPlugin(),
+		new DotEnvPlugin(),
 	],
 	optimization: {
 		minimize: true,

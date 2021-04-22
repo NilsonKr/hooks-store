@@ -14,6 +14,7 @@ const InformationContainer = () => {
 
 	const form = useRef(null);
 
+	//Get Data from form
 	const handleSubmit = () => {
 		const formData = new FormData(form.current);
 		const buyerData = {

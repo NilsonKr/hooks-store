@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 
 module.exports = {
 	entry: './src/index.js',
@@ -45,6 +46,7 @@ module.exports = {
 			template: './public/index.html',
 			filename: './index.html',
 		}),
+		new DotEnvPlugin(),
 	],
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
