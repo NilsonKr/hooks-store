@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/NilsonKr/hooks-store#readme",
 	"dependencies": {
+		"@react-google-maps/api": "^2.1.1",
 		"babel-eslint": "^10.1.0",
 		"eslint": "^7.24.0",
 		"eslint-config-airbnb": "^18.2.1",

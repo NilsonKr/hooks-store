@@ -25,9 +25,8 @@ const PaymentContainer = () => {
 		label: 'pay',
 	};
 
+	//Handle new order success
 	const handleApprove = data => {
-		console.log(data);
-		console.log(data.status);
 		if (data.status === 'COMPLETED') {
 			const newOrder = {
 				buyer: { ...state.buyer },
