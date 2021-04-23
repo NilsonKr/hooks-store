@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AppContext } from '../context';
 import getTotalPrice from '../utils/getTotalPrice';
 
@@ -7,7 +8,8 @@ import { PayPalButton } from 'react-paypal-button-v2';
 import '@styles/components/Payment.css';
 
 const PaymentContainer = () => {
-	const { state } = useContext(AppContext);
+	const { state, setOrder } = useContext(AppContext);
+	const history = useHistory();
 	const { cart } = state;
 	const items = Object.keys(state.cart);
 
@@ -17,9 +19,26 @@ const PaymentContainer = () => {
 	};
 
 	const buttonStyles = {
+		layout: 'vertical',
 		color: 'blue',
 		shape: 'pill',
 		label: 'pay',
+	};
+
+	const handleApprove = data => {
+		console.log(data);
+		console.log(data.status);
+		if (data.status === 'COMPLETED') {
+			const newOrder = {
+				buyer: { ...state.buyer },
+				products: { ...state.cart },
+				order: data,
+			};
+
+			setOrder(newOrder);
+
+			history.push('/checkout/success');
+		}
 	};
 
 	return (
@@ -41,9 +60,9 @@ const PaymentContainer = () => {
 					options={paypalOptions}
 					style={buttonStyles}
 					amount={getTotalPrice(cart)}
-					onApprove={data => console.log(data)}
-					onSuccess={data => console.log(data)}
+					onSuccess={handleApprove}
 					onError={error => console.log(error)}
+					onCancel={data => console.log(data)}
 				/>
 			</div>
 		</div>
