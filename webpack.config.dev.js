@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
-const DotEnvPlugin = require('dotenv-webpack');
+const { EnvironmentPlugin } = require('webpack');
+require('dotenv').config();
 
 module.exports = {
 	entry: './src/index.js',
@@ -46,7 +47,7 @@ module.exports = {
 			template: './public/index.html',
 			filename: './index.html',
 		}),
-		new DotEnvPlugin(),
+		new EnvironmentPlugin(['CLIENTID', 'MAPSKEY']),
 	],
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
