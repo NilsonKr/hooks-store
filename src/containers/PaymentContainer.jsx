@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { AppContext } from '../context';
 import getTotalPrice from '../utils/getTotalPrice';
 
@@ -58,11 +58,14 @@ const PaymentContainer = () => {
 				<PayPalButton
 					options={paypalOptions}
 					style={buttonStyles}
-					amount={getTotalPrice(cart)}
+					amount={getTotalPrice(cart) + 1}
 					onSuccess={handleApprove}
 					onError={error => console.log(error)}
 					onCancel={data => console.log(data)}
 				/>
+				<Link to='/checkout/success' className='Payment-skip'>
+					Skip Payment
+				</Link>
 			</div>
 		</div>
 	);

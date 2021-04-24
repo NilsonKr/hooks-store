@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context';
+import useAddress from '@hooks/useAddress';
 
 import Map from '@components/Map';
 
 const SuccessContainer = () => {
 	const { state } = useContext(AppContext);
+	const location = useAddress(state.buyer.address);
 
 	return (
 		<section className='Success'>
@@ -12,7 +14,7 @@ const SuccessContainer = () => {
 				<h2>{state.buyer.name}, Thank You for The Purchase!</h2>
 				<span>Your order will arrive about 3 days to your address</span>
 				<div className='Success-map'>
-					<Map />
+					{Object.keys(location).length && <Map cordinates={location} />}
 				</div>
 			</div>
 		</section>
