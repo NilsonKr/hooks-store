@@ -1,5 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -53,6 +54,7 @@ module.exports = {
 			filename: 'styles/[name].[contenthash].css',
 		}),
 		new CleanWebpackPlugin(),
+		new DotEnvPlugin(),
 	],
 	optimization: {
 		minimize: true,

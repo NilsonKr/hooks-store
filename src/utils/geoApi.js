@@ -9,6 +9,7 @@ const geoApiRequest = async address => {
 
 		return results;
 	} catch (error) {
+		console.log(error);
 		return { error: error.message };
 	}
 };
