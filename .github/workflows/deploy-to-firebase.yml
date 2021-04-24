@@ -13,7 +13,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: CLIENTID=$CLIENTID MAPSKEY=$MAPSKEY npm run build
+        env:
+          CLIENTID: ${{ secrets.CLIENTID }}
+          MAPSKEY: ${{ secrets.MAPSKEY }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:

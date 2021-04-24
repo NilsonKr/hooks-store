@@ -61,7 +61,6 @@ const PaymentContainer = () => {
 					amount={getTotalPrice(cart) + 1}
 					onSuccess={handleApprove}
 					onError={error => console.log(error)}
-					onCancel={data => console.log(data)}
 				/>
 				<Link to='/checkout/success' className='Payment-skip'>
 					Skip Payment
