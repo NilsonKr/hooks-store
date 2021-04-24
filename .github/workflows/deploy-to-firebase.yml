@@ -1,6 +1,8 @@
 name: Build and Deploy
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     name: Build
@@ -13,7 +15,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@master
         with:
           name: dist
           path: dist
@@ -25,7 +27,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
       - name: Download Artifact
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@master
         with:
           name: dist
           path: dist
