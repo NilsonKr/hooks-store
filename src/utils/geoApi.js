@@ -1,7 +1,9 @@
 const geoApiRequest = async address => {
+	const normalizeAddress = address.replace('#', '');
+
 	try {
 		const response = await fetch(
-			`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.MAPSKEY}`
+			`https://maps.googleapis.com/maps/api/geocode/json?address=${normalizeAddress}&key=${process.env.MAPSKEY}`
 		);
 		const { results } = await response.json();
 
