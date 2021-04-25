@@ -5,7 +5,7 @@ const useAddress = address => {
 	const [location, setLocation] = useState({});
 
 	useEffect(async () => {
-		const results = await geoApi(address);
+		const results = await geoApi(address || '85-1 Chebu-dong');
 
 		setLocation({
 			lat: results[0].geometry.location.lat,

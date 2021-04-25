@@ -33,8 +33,12 @@
 	margin: 0;
 }
 .Payment-skip {
+	display: block;
 	color: #33b1ff;
-	font-size: 1.1rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 	margin-top: 10px;
+}
+.Payment-alert {
+	color: rgb(253, 97, 97);
 }

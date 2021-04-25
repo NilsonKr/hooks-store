@@ -47,7 +47,7 @@ module.exports = {
 			template: './public/index.html',
 			filename: './index.html',
 		}),
-		new EnvironmentPlugin(['CLIENTID', 'MAPSKEY']),
+		new EnvironmentPlugin(['CLIENTID', 'MAPSKEY', 'LIVECLIENT']),
 	],
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),

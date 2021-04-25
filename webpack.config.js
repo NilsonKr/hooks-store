@@ -56,7 +56,7 @@ module.exports = {
 			filename: 'styles/[name].[contenthash].css',
 		}),
 		new CleanWebpackPlugin(),
-		new EnvironmentPlugin(['CLIENTID', 'MAPSKEY']),
+		new EnvironmentPlugin(['CLIENTID', 'MAPSKEY', 'LIVECLIENT']),
 	],
 	optimization: {
 		minimize: true,

@@ -14,7 +14,7 @@ const PaymentContainer = () => {
 	const items = Object.keys(state.cart);
 
 	const paypalOptions = {
-		clientId: process.env.CLIENTID,
+		clientId: process.env.LIVECLIENT,
 		currency: 'USD',
 	};
 
@@ -62,6 +62,10 @@ const PaymentContainer = () => {
 					onSuccess={handleApprove}
 					onError={error => console.log(error)}
 				/>
+				<em className='Payment-alert'>
+					You wont receive anything , this is only with practical and testing purposes,
+					Any Payment will take as a donation , instead you can skip the pay.
+				</em>
 				<Link to='/checkout/success' className='Payment-skip'>
 					Skip Payment
 				</Link>

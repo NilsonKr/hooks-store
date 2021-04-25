@@ -30,12 +30,14 @@ const CheckoutContainer = () => {
 					</div>
 				))}
 			</div>
-			<div className='Checkout-sidebar'>
-				<h3>Total Price: ${getTotalPrice(cart)}</h3>
-				<Link to='/checkout/information'>
-					<button type='button'>Continuar pedido</button>
-				</Link>
-			</div>
+			{items.length > 0 && (
+				<div className='Checkout-sidebar'>
+					<h3>Total Price: ${getTotalPrice(cart)}</h3>
+					<Link to='/checkout/information'>
+						<button type='button'>Continuar pedido</button>
+					</Link>
+				</div>
+			)}
 		</div>
 	);
 };
