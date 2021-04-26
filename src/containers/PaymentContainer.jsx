@@ -55,13 +55,15 @@ const PaymentContainer = () => {
 					</div>
 				))}
 				<div className='Payment-button'>TOTAL PRICE: ${getTotalPrice(cart)}</div>
-				<PayPalButton
-					options={paypalOptions}
-					style={buttonStyles}
-					amount={getTotalPrice(cart) + 1}
-					onSuccess={handleApprove}
-					onError={error => console.log(error)}
-				/>
+				<div className='Paypal-buttons'>
+					<PayPalButton
+						options={paypalOptions}
+						style={buttonStyles}
+						amount={getTotalPrice(cart) + 1}
+						onSuccess={handleApprove}
+						onError={error => console.log(error)}
+					/>
+				</div>
 				<em className='Payment-alert'>
 					You wont receive anything , this is only with practical and testing purposes,
 					Any Payment will take as a donation , instead you can skip the pay.

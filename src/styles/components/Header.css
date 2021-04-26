@@ -1,7 +1,9 @@
 .Header {
 	display: flex;
 	justify-content: space-between;
+	padding: 0 10px;
 }
+
 .Header-checkout {
 	display: flex;
 	justify-content: space-evenly;

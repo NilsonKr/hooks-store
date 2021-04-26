@@ -1,9 +1,19 @@
 .Payment {
-	grid-template-columns: 3fr 1fr;
-	grid-gap: 2rem;
-	grid-row-gap: 1.5em;
-	display: grid;
+	width: 100%;
 }
+
+.Payment-content {
+	min-height: 50vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
+}
+
+.Paypal-buttons {
+	width: clamp(280px, 100%, 500px);
+	align-self: center;
+}
+
 .Payment-back {
 	margin: 10px 0 0 0;
 }

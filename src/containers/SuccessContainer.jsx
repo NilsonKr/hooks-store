@@ -4,6 +4,8 @@ import useAddress from '@hooks/useAddress';
 
 import Map from '@components/Map';
 
+import '@styles/components/Success.css';
+
 const SuccessContainer = () => {
 	const { state } = useContext(AppContext);
 	const location = useAddress(state.buyer.address);

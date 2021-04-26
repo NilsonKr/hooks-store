@@ -1,5 +1,5 @@
 .Information {
-	grid-template-columns: 3fr 1fr;
+	grid-template-rows: 2fr;
 	grid-gap: 2rem;
 	grid-row-gap: 1.5em;
 	display: grid;
@@ -11,6 +11,7 @@
 	align-items: center;
 }
 .Information-sidebar {
+	grid-row: 1 / 2;
 	margin: 10px 0 0 0;
 }
 .Information-back {
@@ -94,4 +95,14 @@ input {
 	color: rgb(255, 65, 65);
 	font-weight: bold;
 	font-size: 1.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+	.Information {
+		grid-template-rows: 1fr;
+		grid-template-columns: 3fr 1fr;
+	}
+	.Information-sidebar {
+		grid-column: 2 / 3;
+	}
 }

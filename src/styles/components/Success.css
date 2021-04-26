@@ -1,6 +1,10 @@
 .Success {
-  margin: 0 0 4em 0;
+	width: 100%;
+	margin: 0 0 4em 0;
 }
-.Success-map {
-  margin: 10px 0 0 0;
+.Success-content {
+	min-height: 60vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-evenly;
 }
