@@ -7,6 +7,13 @@ import { PayPalButton } from 'react-paypal-button-v2';
 
 import '@styles/components/Payment.css';
 
+const buttonStyles = {
+	layout: 'vertical',
+	color: 'blue',
+	shape: 'pill',
+	label: 'pay',
+};
+
 const PaymentContainer = () => {
 	const { state, setOrder } = useContext(AppContext);
 	const history = useHistory();
@@ -16,13 +23,6 @@ const PaymentContainer = () => {
 	const paypalOptions = {
 		clientId: process.env.LIVECLIENT,
 		currency: 'USD',
-	};
-
-	const buttonStyles = {
-		layout: 'vertical',
-		color: 'blue',
-		shape: 'pill',
-		label: 'pay',
 	};
 
 	//Handle new order success
